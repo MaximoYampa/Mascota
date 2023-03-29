@@ -19,9 +19,14 @@ public class Mascota
 
     }
 
-    public void CambiarEstado(IEstado estado)
+    internal void CambiarEstado(IEstado estado)
     {
 
+    }
+
+    public void Incrementar(int unidad) 
+    {
+        nivel = nivel+unidad;
     }
         
 }

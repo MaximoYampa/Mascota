@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using biblioteca;
+using Xunit;
 
 namespace Test;
 
 public class MascotaTest
 {
-    public Mascota Mascota { get; set; }
-    public IEstado IEstado { get; }
+    public Mascota Mochi { get; set; }
 
-    private int nivel;
+    public MascotaTest()=> Mochi = new Mascota();
 
-    public MascotaTest(IEstado IEstado , int nivel)
+    [Fact]
+    public void MochiAburridoPorDefecto()
     {
-        this.IEstado = IEstado;
-        this.nivel = nivel;
+        Assert.IsType<Aburrido>(Mochi.estado);
+    }
+
+    [Fact]
+    public void MochiAburridoJuega()
+    {
+        Mochi.Jugar();
+        Assert.IsType<Contento>(Mochi.estado);
     }
 }
